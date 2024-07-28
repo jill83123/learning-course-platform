@@ -1,0 +1,19 @@
+@import 'bootstrap/scss/functions';
+@import 'utils/variables';
+@import "bootstrap/scss/variables-dark";
+@import 'bootstrap/scss/maps';
+@import 'utils/utilities';
+@import 'bootstrap';
+
+@import 'base/typography';
+
+@import 'components/nav-tabs';
+@import 'components/buttons';
+@import 'components/form-select';
+@import 'components/pagination';
+@import 'components/tag';
+
+@import 'layout/navbar';
+@import 'layout/footer';
+
+@import 'pages/index';

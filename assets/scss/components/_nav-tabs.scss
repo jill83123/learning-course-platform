@@ -1,0 +1,14 @@
+.nav-underline .nav-link.active {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto auto -4px 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: $primary;
+  }
+}
