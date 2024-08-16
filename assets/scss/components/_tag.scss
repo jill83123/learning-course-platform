@@ -1,7 +1,16 @@
 $tags: (
-  primary: (background-color: $primary, text-color: $primary-10),
-  danger: (background-color: $danger, text-color: $danger-10),
-  neutral: (background-color: $neutral-40, text-color: $neutral-80)
+  primary: (
+    background-color: $primary-10,
+    text-color: $primary,
+  ),
+  danger: (
+    background-color: $danger-10,
+    text-color: $danger,
+  ),
+  neutral: (
+    background-color: $neutral-40,
+    text-color: $neutral-80,
+  ),
 );
 
 .tag {
@@ -13,6 +22,10 @@ $tags: (
   @include media-breakpoint-down(sm) {
     font-weight: $font-weight-normal;
   }
+}
+
+.tag-sm {
+  padding: 4px 8px;
 }
 
 @each $color, $styles in $tags {
