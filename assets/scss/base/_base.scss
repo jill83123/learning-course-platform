@@ -1,3 +1,19 @@
+$navbar-height-lg: 154px;
+$navbar-height-sm: 65px;
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  margin-top: $navbar-height-lg;
+  min-height: calc(100vh - $navbar-height-lg);
+
+  @include media-breakpoint-down(lg) {
+    margin-top: $navbar-height-sm;
+    min-height: calc(100vh - $navbar-height-sm);
+  }
+}
+
 a {
   color: inherit;
 }
