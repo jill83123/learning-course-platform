@@ -14,6 +14,16 @@ body {
   }
 }
 
+main > .section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
 a {
   color: inherit;
 }

@@ -20,6 +20,11 @@ $swiper-button-width: 56px;
     box-shadow: 0px 10px 15px -3px #0000001a;
     border-radius: $border-radius-lg;
   }
+
+  &:hover:after {
+    color: $white;
+    background-color: $primary;
+  }
 }
 
 .swiper-button-prev:after {
@@ -39,5 +44,14 @@ $swiper-button-width: 56px;
     width: 24px;
     border-radius: 100px;
     background: $primary;
+  }
+}
+
+.course-swiper {
+  .swiper-button-prev {
+    transform: translateX(calc(-50% - $grid-gutter-width / 2));
+  }
+  .swiper-button-next {
+    transform: translateX(calc(50% + $grid-gutter-width / 2));
   }
 }

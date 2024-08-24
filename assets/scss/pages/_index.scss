@@ -7,6 +7,7 @@ $index-header-item-spacer: 40px;
   @media (max-width: #{$index-header-item-width + $index-header-item-spacer * 2}) {
     padding: 0 $index-header-item-spacer;
   }
+
   @include media-breakpoint-down(lg) {
     padding: 0;
   }
@@ -64,6 +65,7 @@ $index-header-item-spacer: 40px;
       }
     }
   }
+
   .swiper-slide-active {
     &::after {
       content: '';
@@ -83,6 +85,7 @@ $index-header-item-spacer: 40px;
       display: block;
     }
   }
+
   .swiper-slide-prev,
   .swiper-slide-next {
     &::after {
@@ -106,24 +109,135 @@ $index-header-item-spacer: 40px;
     transform: translateX(-50%);
 
     @media (max-width: #{$index-header-item-width + calc($index-header-item-spacer / 2)}) {
-      left: calc($index-header-item-spacer / 2);
+      padding-left: calc($index-header-item-spacer / 2);
     }
   }
+
   .swiper-button-next {
     right: 0;
     transform: translateX(50%);
 
     @media (max-width: #{$index-header-item-width + calc($index-header-item-spacer / 2)}) {
-      right: calc($index-header-item-spacer / 2);
+      padding-right: calc($index-header-item-spacer / 2);
     }
   }
+
   .swiper-button-prev,
   .swiper-button-next {
     @include media-breakpoint-down(lg) {
       display: none;
     }
-    @media (max-width: #{$index-header-item-width + $swiper-button-width}) {
+
+    @media (max-width: #{$index-header-item-width + $swiper-button-width + calc($index-header-item-spacer / 2)}) {
       transform: none;
+    }
+  }
+}
+
+.hot-fundraising-course {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: -100px;
+    width: 560px;
+    height: 560px;
+    background-image: url(../images/deco/flower-2.png);
+
+    @include media-breakpoint-down(lg) {
+      left: 0;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+      background-size: cover;
+    }
+  }
+
+  .btn-outline-neutral-40 {
+    background-color: $body-bg;
+
+    &:hover {
+      background-color: var(--bs-btn-hover-bg);
+    }
+  }
+}
+
+.index-course-section {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 480px;
+    height: 480px;
+    transform: translate(-50%, -50%);
+    background-image: url(../images/deco/flower-3.png);
+
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+}
+
+.index-category-section {
+  position: relative;
+
+  & > .container {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0 -180px;
+      border-radius: 80px;
+      background-color: $primary;
+    }
+
+    @media (max-width: 1692px) {
+      position: static;
+
+      &::after {
+        inset: 120px calc($grid-gutter-width / 2);
+
+        @include media-breakpoint-down(lg) {
+          top: 40px;
+          bottom: 40px;
+          border-radius: 40px;
+        }
+      }
+    }
+  }
+
+  .swiper-slide {
+    @include media-breakpoint-down(lg) {
+      width: fit-content;
+    }
+  }
+}
+
+.index-teacher-section {
+  .swiper-slide {
+    @include media-breakpoint-down(lg) {
+      flex-basis: auto;
+      width: 375px;
+      max-width: none;
+    }
+  }
+
+  .avatar {
+    width: 336px;
+    height: 400px;
+
+    @include media-breakpoint-down(lg) {
+      width: 291px;
+      height: 356px;
     }
   }
 }

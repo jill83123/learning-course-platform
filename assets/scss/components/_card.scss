@@ -1,0 +1,8 @@
+.card-link-hover {
+  display: block;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
