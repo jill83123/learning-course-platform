@@ -1,0 +1,9 @@
+.main-footer {
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+
+  @include media-breakpoint-up(md) {
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+  }
+}
