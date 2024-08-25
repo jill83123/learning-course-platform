@@ -17,8 +17,14 @@ $index-header-item-spacer: 40px;
   position: static;
   height: calc(100vh - $navbar-height-lg - 16px);
 
+  @media (max-width: #{$index-header-item-width + calc($index-header-item-spacer / 2)}) {
+    overflow: hidden;
+    border-radius: 80px;
+  }
+
   @include media-breakpoint-down(lg) {
     height: 456px;
+    border-radius: 0px;
   }
 
   .swiper-slide {
@@ -45,23 +51,10 @@ $index-header-item-spacer: 40px;
 
     .content {
       display: none;
-    }
-
-    .link {
-      border-top-right-radius: 100px;
+      bottom: 112px;
 
       @include media-breakpoint-down(lg) {
-        border-radius: 0;
-      }
-
-      .material-symbols-outlined {
-        transition: transform 0.5s;
-      }
-
-      &:hover {
-        .material-symbols-outlined {
-          transform: translateX(16px);
-        }
+        bottom: 56px;
       }
     }
   }
@@ -96,7 +89,7 @@ $index-header-item-spacer: 40px;
     }
   }
 
-  // navigation
+  .swiper-title-wrapper,
   .swiper-button-wrapper {
     position: absolute;
     inset: 0;
@@ -104,6 +97,7 @@ $index-header-item-spacer: 40px;
     margin: 0 auto;
   }
 
+  // navigation
   .swiper-button-prev {
     left: 0;
     transform: translateX(-50%);
@@ -132,9 +126,123 @@ $index-header-item-spacer: 40px;
       transform: none;
     }
   }
+
+  .swiper-title-wrapper {
+    @media (max-width: #{$index-header-item-width + $index-header-item-spacer * 2}) {
+      position: static;
+    }
+
+    .title {
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      border-top-right-radius: 100px;
+      border-bottom-left-radius: 80px;
+      overflow: hidden;
+
+      @include media-breakpoint-down(lg) {
+        left: 0;
+        right: 0;
+        border-radius: 0;
+      }
+    }
+
+    .link {
+      .material-symbols-outlined {
+        transition: transform 0.5s;
+      }
+
+      &:hover {
+        .material-symbols-outlined {
+          transform: translateX(16px);
+        }
+      }
+    }
+  }
+
+  .swiper-mask-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+
+    @media (max-width: #{$index-header-item-width + $swiper-button-width + calc($index-header-item-spacer / 2)}) {
+      display: none;
+    }
+
+    .box {
+      position: absolute;
+      inset: 0;
+      max-width: calc($index-header-item-width + 80px);
+      margin: 0 auto;
+    }
+
+    .item {
+      position: absolute;
+      z-index: 1;
+      width: 40px;
+      height: 100%;
+      background-color: $body-bg;
+
+      .path-wrapper {
+        width: calc(100% + 160px);
+        height: 100%;
+        left: -80px;
+        right: 80px;
+
+        &::after,
+        &::before {
+          content: '';
+          position: absolute;
+          width: 160px;
+          height: 160px;
+          border-radius: 100%;
+          box-shadow: 0 0 0 40px $body-bg;
+        }
+
+        &::after {
+          left: 120px;
+        }
+        &::before {
+          left: -79px;
+        }
+      }
+
+      .top-0 {
+        &::after,
+        &::before {
+          top: 0;
+        }
+
+        &::after {
+          clip-path: inset(0 80px 80px 0);
+        }
+
+        &::before {
+          clip-path: inset(0px 0px 80px 80px);
+        }
+      }
+
+      .bottom-0 {
+        &::after,
+        &::before {
+          bottom: 0;
+        }
+
+        &::after {
+          clip-path: inset(80px 80px 0px 0px);
+        }
+
+        &::before {
+          clip-path: inset(80px 0px 0px 80px);
+        }
+      }
+    }
+  }
 }
 
-.hot-fundraising-course {
+/* ------------------------- */
+
+.index-fundraising-course {
   position: relative;
 
   &::after {
@@ -165,6 +273,8 @@ $index-header-item-spacer: 40px;
   }
 }
 
+/* ------------------------- */
+
 .index-course-section {
   position: relative;
   overflow: hidden;
@@ -184,6 +294,8 @@ $index-header-item-spacer: 40px;
     }
   }
 }
+
+/* ------------------------- */
 
 .index-category-section {
   position: relative;
@@ -221,6 +333,8 @@ $index-header-item-spacer: 40px;
     }
   }
 }
+
+/* ------------------------- */
 
 .index-teacher-section {
   .swiper-slide {

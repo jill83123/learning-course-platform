@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 const navigation = {
   nextEl: '.swiper-button-next',
@@ -13,13 +13,17 @@ const bulletPagination = {
 
 /* ----- index ------ */
 const indexHeaderSwiper = new Swiper('#indexHeaderSwiper', {
-  modules: [Navigation, Pagination],
+  modules: [Navigation, Pagination, Autoplay],
   navigation,
   pagination: bulletPagination,
   slidesPerView: 'auto',
   centeredSlides: true,
   spaceBetween: 40,
   loop: true,
+  autoplay: {
+    delay: 2400,
+    disableOnInteraction: false,
+  },
 });
 
 const indexFundraisingCategory = new Swiper('#indexFundraisingCategory', {
