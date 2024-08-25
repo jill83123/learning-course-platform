@@ -1,58 +1,58 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 
+const navigation = {
+  nextEl: '.swiper-button-next',
+  prevEl: '.swiper-button-prev',
+};
+
+const bulletPagination = {
+  el: '.swiper-pagination',
+  type: 'bullets',
+};
+
+/* ----- index ------ */
 const indexHeaderSwiper = new Swiper('#indexHeaderSwiper', {
   modules: [Navigation, Pagination],
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-  },
+  navigation,
+  pagination: bulletPagination,
   slidesPerView: 'auto',
   centeredSlides: true,
   spaceBetween: 40,
   loop: true,
 });
 
-const courseSwiper = new Swiper('.course-swiper', {
+const indexFundraisingCategory = new Swiper('#indexFundraisingCategory', {
   modules: [Navigation],
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+  navigation,
   slidesPerView: 'auto',
+  spaceBetween: 8,
 });
 
-let cardMobileSwiper = null;
-function handleResize() {
-  const screenWidth = window.innerWidth;
+const indexFundraisingList = new Swiper('#indexFundraisingList', {
+  modules: [Navigation, Pagination],
+  navigation,
+  pagination: bulletPagination,
+  slidesPerView: 'auto',
+  spaceBetween: 24,
+});
 
-  if (!cardMobileSwiper && screenWidth < 992) {
-    cardMobileSwiper = new Swiper('.card-mobile-swiper', {
-      modules: [Navigation, Pagination],
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-      },
-      slidesPerView: 'auto',
-    });
-  }
+// 與 課程列表頁 共用
+const courseSwiper = new Swiper('.course-swiper', {
+  modules: [Navigation],
+  navigation,
+  slidesPerView: 'auto',
+  spaceBetween: 24,
+});
 
-  if (cardMobileSwiper?.length > 0 && screenWidth > 992) {
-    cardMobileSwiper.forEach((swiper) => {
-      swiper.slideTo(0);
-      swiper.destroy(true, true);
-      cardMobileSwiper = null;
-    });
-  }
-}
+const indexCategorySwiper = new Swiper('#indexCategorySwiper', {
+  slidesPerView: 'auto',
+  spaceBetween: 24,
+});
 
-window.addEventListener('load', handleResize);
-window.addEventListener('resize', handleResize);
+const indexTeacherSwiper = new Swiper('#indexTeacherSwiper', {
+  modules: [Pagination],
+  pagination: bulletPagination,
+  slidesPerView: 'auto',
+  spaceBetween: 24,
+});
