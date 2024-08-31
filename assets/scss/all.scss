@@ -10,16 +10,14 @@
 @import 'base/base';
 @import 'base/typography';
 
-@import 'components/nav-tabs';
-@import 'components/buttons';
-@import 'components/form-select';
-@import 'components/pagination';
+@import 'components/bootstrap';
 @import 'components/tag';
 @import 'components/icons';
-@import 'components/progress';
 @import 'components/card';
 
 @import 'layout/navbar';
 @import 'layout/footer';
+@import 'layout/category-section';
 
 @import 'pages/index';
+@import 'pages/course-list';
